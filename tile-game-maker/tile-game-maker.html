@@ -1,0 +1,88 @@
+<html>
+<head>
+    <title>Tile Game Maker</title>
+    <link rel="shortcut icon" type="image/png" href="../favicon.png"/>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400&display=swap" rel="stylesheet">
+    <link href="https://cdn.materialdesignicons.com/5.2.45/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="tile-game-maker.css" rel="stylesheet">
+    <script src="../lib/jquery.js"></script>
+    <script src="../tile-game-lib/tile-game-lib.js"></script>
+    <script src="ui.js"></script>
+    <script src="tile-game-maker.js"></script>
+</head>
+<body>
+    <table class="root-panel">
+        <tr>
+            <td colspan="3" class="bar top">
+                <div class="title-bar">
+                    <div class="logo-title-container">
+                        <div class="logo"><img src="../favicon.png" width="42"></div>
+                        <div class="title">Tile Game Maker</div>
+                        <div class="version">v0.1a</div>
+                    </div>
+                    <div class="button-container">
+                        <div id="btn-new" class="button"><span class="mdi mdi-file-outline"></span>New</div>
+                        <div id="btn-export" class="button"><span class="mdi mdi-content-save"></span>Export</div>
+                        <div id="btn-import" class="button"><span class="mdi mdi-folder-open"></span>Import</div>
+                        <div id="btn-help" class="button"><span class="mdi mdi-help-circle"></span>Help</div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="workspace-panel workspace-left-panel">
+                <div id="left-window" class="window window-margin-left">
+                    <div class="window-title">
+                        <span class="mdi mdi-dock-window"></span>
+                        Window
+                    </div>
+                    <div class="window-content">
+                        (No content)
+                    </div>
+                    <div class="window-footer">
+                        Footer
+                    </div>
+                </div>
+            </td>
+            <td class="workspace-panel workspace-center-panel">
+                <div id="center-window" class="window window-margin-right-left">
+                    <div class="window-title">
+                        <span class="mdi mdi-dock-window"></span>
+                        Window
+                    </div>
+                    <div class="window-content">
+                        (No content)
+                    </div>
+                    <div class="window-footer">
+                        Footer
+                    </div>
+                </div>
+            </td>
+            <td class="workspace-panel workspace-right-panel">
+                <div id="right-window" class="window window-margin-right">
+                    <div class="window-title">
+                        <span class="mdi mdi-dock-window"></span>
+                        Window
+                    </div>
+                    <div class="window-content">
+                        (No content)
+                    </div>
+                    <div class="window-footer">
+                        Footer
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="bar bottom">
+                <div class="footer-bar">
+                    Developed with <span class="mdi mdi-heart"></span> by 
+                    <a href="https://github.com/FernandoAiresCastello" target="_blank">
+                        Fernando Aires Castello
+                    </a>
+                </div>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
