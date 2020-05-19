@@ -18,7 +18,17 @@
     <script src="tile-game-maker.js"></script>
 </head>
 <body>
-    <div class="floating-window-container"></div>
+    <!-- Floating modal window -->
+    <div class="floating-window-container">
+        <div class="window floating-window">
+            <div class="window-title-bar">
+                <span class="mdi mdi-dock-window"></span>
+                <span class="window-title"></span>
+                <span class="mdi mdi-close"></span>
+            </div>
+            <div class="window-content"></div>
+        </div>
+    </div>
     <table class="root-panel">
         <!-- Top application bar -->
         <tr>
@@ -31,84 +41,63 @@
                         <div class="title">Tile Game Maker</div>
                     </div>
                     <!-- Buttons -->
-                    <div class="button-container">
-                        <div id="btn-new" class="button"><span class="mdi mdi-file-outline"></span>New</div>
-                        <div id="btn-export" class="button"><span class="mdi mdi-content-save"></span>Export</div>
-                        <div id="btn-import" class="button"><span class="mdi mdi-folder-open"></span>Import</div>
-                        <div id="btn-settings" class="button"><span class="mdi mdi-tools"></span>Settings</div>
-                        <div id="btn-help" class="button"><span class="mdi mdi-help-circle"></span>Help</div>
-                    </div>
+                    <div class="button-container"></div>
                 </div>
             </td>
         </tr>
         <!-- Workspace panels -->
         <tr>
             <!-- Top left panel -->
-            <td class="workspace-panel workspace-left-panel">
+            <td class="workspace-panel workspace-top-panel workspace-side-panel">
                 <div id="top-left-window" class="window">
                     <div class="window-title-bar">
                         <span class="mdi"></span>
                         <span class="window-title"></span>
                     </div>
                     <div class="window-content"></div>
-                    <div class="window-footer"></div>
                 </div>
             </td>
             <!-- Top center panel -->
-            <td class="workspace-panel workspace-center-panel">
+            <td class="workspace-panel workspace-top-panel workspace-center-panel" rowspan="2">
                 <div id="top-center-window" class="window">
                     <div class="window-title-bar">
                         <span class="mdi"></span>
                         <span class="window-title"></span>
                     </div>
+                    <div class="window-toolbar"></div>
                     <div class="window-content"></div>
-                    <div class="window-footer"></div>
                 </div>
             </td>
             <!-- Top right panel -->
-            <td class="workspace-panel workspace-right-panel">
+            <td class="workspace-panel workspace-top-panel workspace-side-panel">
                 <div id="top-right-window" class="window">
                     <div class="window-title-bar">
                         <span class="mdi"></span>
                         <span class="window-title"></span>
                     </div>
                     <div class="window-content"></div>
-                    <div class="window-footer"></div>
                 </div>
             </td>
         </tr>
         <tr>
             <!-- Bottom left panel -->
-            <td class="workspace-panel workspace-left-panel">
+            <td class="workspace-panel workspace-bottom-panel workspace-side-panel">
                 <div id="bottom-left-window" class="window">
                     <div class="window-title-bar">
                         <span class="mdi"></span>
                         <span class="window-title"></span>
                     </div>
                     <div class="window-content"></div>
-                    <div class="window-footer"></div>
-                </div>
-            </td>
-            <!-- Bottom center panel -->
-            <td class="workspace-panel workspace-center-panel">
-                <div id="bottom-center-window" class="window">
-                    <div class="window-title-bar">
-                        <span class="mdi"></span>
-                        <span class="window-title"></span>
-                    </div>
-                    <div class="window-content"></div>
-                    <div class="window-footer"></div>
                 </div>
             </td>
             <!-- Bottom right panel -->
-            <td class="workspace-panel workspace-right-panel">
+            <td class="workspace-panel workspace-bottom-panel workspace-side-panel">
                 <div id="bottom-right-window" class="window">
                     <div class="window-title-bar">
                         <span class="mdi"></span>
                         <span class="window-title"></span>
                     </div>
                     <div class="window-content"></div>
-                    <div class="window-footer"></div>
                 </div>
             </td>
         </tr>

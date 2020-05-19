@@ -12,7 +12,7 @@ body {
 /*==============================================================================
     ROOT PANEL
 ==============================================================================*/
-.root-panel, .floating-window-container {
+.root-panel {
     border: 0;
     padding: 0;
     margin: 0;
@@ -22,11 +22,6 @@ body {
 }
 .root-panel {
     border-collapse: collapse;
-}
-.floating-window-container {
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: none;
 }
 /*==============================================================================
     TOP / BOTTOM BARS
@@ -72,6 +67,7 @@ td.bar.bottom {
 .button {
     border-radius: 6px;
     padding: 5px 10px;
+    margin: 0px 2px;
     cursor: pointer;
     display: inline-block;
 }
@@ -109,13 +105,10 @@ td.left-panel, td.right-panel {
     vertical-align: top;
     padding: 0;
 }
-.workspace-left-panel {
-    width: 20%;
-}
 .workspace-center-panel {
     width: 60%;
 }
-.workspace-right-panel {
+.workspace-side-panel {
     width: 20%;
 }
 /*==============================================================================
@@ -139,11 +132,18 @@ td.left-panel, td.right-panel {
     user-select: none;
     border-bottom: 1px solid #000;
 }
+.window-toolbar {
+    padding: 0 10px;
+    user-select: none;
+    border-bottom: 1px solid #000;
+}
+.window-toolbar span.mdi {
+    cursor: pointer;
+}
 .window-footer {
     padding: 0 10px;
     user-select: none;
     border-top: 1px solid #000;
-    height: 28px;
 }
 .window-content {
     padding: 0;
@@ -152,10 +152,28 @@ td.left-panel, td.right-panel {
 /*==============================================================================
     FLOATING WINDOWS
 ==============================================================================*/
-.floating-window {
+.floating-window-container {
+    display: none;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    font-size: inherit;
+    background-color: rgba(0, 0, 0, 0.5);
     position: absolute;
-    height: auto;
-    width: auto;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+}
+.floating-window {
+    position: relative;
+    height: 86%;
+    width: 94%;
+    top: 9%;
+    left: 3%;
+}
+.floating-window .mdi-close {
+    cursor: pointer;
 }
 .floating-window .window-content {
     padding: 5px 10px;

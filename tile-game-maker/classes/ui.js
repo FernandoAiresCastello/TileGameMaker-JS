@@ -1,24 +1,45 @@
 class TGM_Ui {
 
     constructor() {
+        this.defineButtons();
         this.defineWindows();
         this.initStyles();
-        this.initButtonHandlers();
         this.fadeIn();
     }
 
+    defineButtons() {
+       this.defineButton('file-outline', 'New', () => this.btnNewClick());
+       this.defineButton('content-save', 'Save', () => this.btnSaveClick());
+       this.defineButton('folder-open', 'Load', () => this.btnLoadClick());
+       this.defineButton('tools', 'Settings', () => this.btnSettingsClick());
+       this.defineButton('help-circle', 'Help', () => this.btnHelpClick());
+    }
+
+    defineButton(icon, title, onclick) {
+        const buttons = $('.button-container');
+        const button = `<div class="button"><span class="mdi mdi-${icon}"></span>${title}</div>`;
+        buttons.append(button).click(onclick);
+    }
+
     defineWindows() {
-        this.defineWindow('#top-left-window', 'bookshelf', 'Object Library');
+        $('.floating-window .mdi-close').click(this.hideFloatingWindow);
+        // Map
         this.defineWindow('#top-center-window', 'grid', 'Map');
-        this.defineWindow('#top-right-window', 'cube-outline', 'Properties');
-        this.defineWindow('#bottom-left-window', 'dock-window', 'Window');
-        this.defineWindow('#bottom-center-window', 'dock-window', 'Window');
-        this.defineWindow('#bottom-right-window', 'dock-window', 'Window');
+        this.addToolButton('#top-center-window', 'file-outline', 'New map');
+        this.addToolButton('#top-center-window', 'broom', 'Clear map');
+        // Object
+        this.defineWindow('#top-left-window', 'cube-outline', 'Object');
+        // Object library
+        this.defineWindow('#bottom-left-window', 'bookshelf', 'Object library');
+        // Map properties
+        this.defineWindow('#top-right-window', 'format-list-bulleted-type', 'Map properties');
+        // Map library
+        this.defineWindow('#bottom-right-window', 'map-outline', 'Map library');
     }
 
     defineWindow(windowSelector, icon, title, footer, content) {
         const window = $(windowSelector);
-        window.find('span.mdi').replaceWith(`<span class="mdi mdi-${icon ? icon : ''}">`);
+        window.find('span.mdi').first().replaceWith(`<span class="mdi mdi-${icon ? icon : ''}">`);
         window.find('.window-title').html(title ? title : '');
         window.find('.window-footer').html(footer ? footer : '');
         window.find('.window-content').html(content ? content : '');
@@ -39,51 +60,52 @@ class TGM_Ui {
         this.setWindowBarTextColor('#ffffff');
         this.setWindowBackColor('#ffffff');
         this.setWindowTextColor('#000000');
+        // Toolbars
+        this.setToolbarBackColor('#e0e0e0');
+        this.setToolbarTextColor('#303030');
     }
 
     fadeIn() {
         $('body').fadeIn('slow');
     }
 
-    initButtonHandlers() {
-        $('#btn-new').click(() => this.btnNewClick());
-        $('#btn-export').click(() => this.btnExportClick());
-        $('#btn-import').click(() => this.btnImportClick());
-        $('#btn-settings').click(() => this.btnSettingsClick());
-        $('#btn-help').click(() => this.btnHelpClick());
+    alert(message, title, footer) {
+        this.showFloatingWindow(message, title, footer);
     }
 
-    alert(x, y, width, height, message, title, footer) {
-        this.showFloatingWindow(x, y, width, height, message, title ? title : 'Alert', footer);
+    btnNewClick() {
+    }
+
+    btnSaveClick() {
+    }
+
+    btnLoadClick() {
+    }
+
+    btnSettingsClick() {
     }
 
     btnHelpClick() {
-        this.alert(100, 100, 300, 200, "There's no help here...", "Help");
+        this.alert("There's no help here...", "Help", "Click on the X to close this window");
     }
 
-    showFloatingWindow(x, y, width, height, content, title, footer) {
-        const style = `top:${y}; left:${x}; width:${width}; height:${height}`;
-        const window =
-        `<div class="window floating-window" style="${style}">
-            <div class="window-title-bar">
-                <span class="window-title">${title ? title : ''}</span>
-                <span class="mdi mdi-close"></span>
-            </div>
-            <div class="window-content">${content}</div>
-            <div class="window-footer">${footer ? footer : ''}</div>
-        </div>`;
-
-        $('.floating-window-container').append(window);
-        $('.floating-window-container').fadeIn();
-        $('.floating-window .mdi-close').click(() => this.closeFloatingWindows());
-        $('.floating-window .mdi-close').css('cursor', 'pointer');
-
-        this.initStyles();
+    showFloatingWindow(content, title, footer) {
+        const window = $('.floating-window-container');
+        window.find('.window-title').html(title ? title : '');
+        window.find('.window-footer').html(footer ? footer : '');
+        window.find('.window-content').html(content ? content : '');
+        window.fadeIn();
     }
 
-    closeFloatingWindows() {
+    hideFloatingWindow() {
         $('.floating-window-container').fadeOut();
-        $('.floating-window').remove();
+    }
+
+    addToolButton(windowSelector, icon, title, onclick) {
+        const window = $(windowSelector);
+        const button = `<span class="mdi mdi-${icon}"></span>`;
+        const toolbar = window.find('.window-toolbar');
+        toolbar.append(button);
     }
 
     setWorkspaceBackColor(color) {
@@ -103,6 +125,7 @@ class TGM_Ui {
         $('.footer-bar').css('border-top-color', color);
         $('.window').css('border-color', color);
         $('.window-title-bar').css('border-bottom-color', color);
+        $('.window-toolbar').css('border-bottom-color', color);
         $('.window-footer').css('border-top-color', color);
     }
 
@@ -126,6 +149,14 @@ class TGM_Ui {
     setWindowBarTextColor(color) {
         $('.window-title-bar').css('color', color);
         $('.window-footer').css('color', color);
+    }
+
+    setToolbarBackColor(color) {
+        $('.window-toolbar').css('background', color);
+    }
+
+    setToolbarTextColor(color) {
+        $('.window-toolbar').css('color', color);
     }
 
     makeGradient(color1, color2) {
