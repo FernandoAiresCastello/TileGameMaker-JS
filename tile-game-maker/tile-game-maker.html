@@ -1,85 +1,128 @@
 <html>
 <head>
     <title>Tile Game Maker</title>
+    <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" href="../favicon.png"/>
+    <!-- Web fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400&display=swap" rel="stylesheet">
     <link href="https://cdn.materialdesignicons.com/5.2.45/css/materialdesignicons.min.css" rel="stylesheet">
+    <!-- Styles -->
     <link href="tile-game-maker.css" rel="stylesheet">
+    <!-- Vendor scripts -->
     <script src="../lib/jquery.js"></script>
+    <!-- Tile Game Lib scripts -->
     <script src="../tile-game-lib/tile-game-lib.js"></script>
-    <script src="ui.js"></script>
+    <script src="../tile-game-lib/classes/util.js"></script>
+    <!-- Tile Game Maker scripts -->
+    <script src="classes/ui.js"></script>
     <script src="tile-game-maker.js"></script>
 </head>
 <body>
+    <div class="floating-window-container"></div>
     <table class="root-panel">
+        <!-- Top application bar -->
         <tr>
             <td colspan="3" class="bar top">
+                <!-- Title bar  -->
                 <div class="title-bar">
+                    <!-- Logo and title -->
                     <div class="logo-title-container">
                         <div class="logo"><img src="../favicon.png" width="42"></div>
                         <div class="title">Tile Game Maker</div>
-                        <div class="version">v0.1a</div>
                     </div>
+                    <!-- Buttons -->
                     <div class="button-container">
                         <div id="btn-new" class="button"><span class="mdi mdi-file-outline"></span>New</div>
                         <div id="btn-export" class="button"><span class="mdi mdi-content-save"></span>Export</div>
                         <div id="btn-import" class="button"><span class="mdi mdi-folder-open"></span>Import</div>
+                        <div id="btn-settings" class="button"><span class="mdi mdi-tools"></span>Settings</div>
                         <div id="btn-help" class="button"><span class="mdi mdi-help-circle"></span>Help</div>
                     </div>
                 </div>
             </td>
         </tr>
+        <!-- Workspace panels -->
         <tr>
+            <!-- Top left panel -->
             <td class="workspace-panel workspace-left-panel">
-                <div id="left-window" class="window window-margin-left">
-                    <div class="window-title">
-                        <span class="mdi mdi-dock-window"></span>
-                        Window
+                <div id="top-left-window" class="window">
+                    <div class="window-title-bar">
+                        <span class="mdi"></span>
+                        <span class="window-title"></span>
                     </div>
-                    <div class="window-content">
-                        (No content)
-                    </div>
-                    <div class="window-footer">
-                        Footer
-                    </div>
+                    <div class="window-content"></div>
+                    <div class="window-footer"></div>
                 </div>
             </td>
+            <!-- Top center panel -->
             <td class="workspace-panel workspace-center-panel">
-                <div id="center-window" class="window window-margin-right-left">
-                    <div class="window-title">
-                        <span class="mdi mdi-dock-window"></span>
-                        Window
+                <div id="top-center-window" class="window">
+                    <div class="window-title-bar">
+                        <span class="mdi"></span>
+                        <span class="window-title"></span>
                     </div>
-                    <div class="window-content">
-                        (No content)
-                    </div>
-                    <div class="window-footer">
-                        Footer
-                    </div>
+                    <div class="window-content"></div>
+                    <div class="window-footer"></div>
                 </div>
             </td>
+            <!-- Top right panel -->
             <td class="workspace-panel workspace-right-panel">
-                <div id="right-window" class="window window-margin-right">
-                    <div class="window-title">
-                        <span class="mdi mdi-dock-window"></span>
-                        Window
+                <div id="top-right-window" class="window">
+                    <div class="window-title-bar">
+                        <span class="mdi"></span>
+                        <span class="window-title"></span>
                     </div>
-                    <div class="window-content">
-                        (No content)
-                    </div>
-                    <div class="window-footer">
-                        Footer
-                    </div>
+                    <div class="window-content"></div>
+                    <div class="window-footer"></div>
                 </div>
             </td>
         </tr>
         <tr>
+            <!-- Bottom left panel -->
+            <td class="workspace-panel workspace-left-panel">
+                <div id="bottom-left-window" class="window">
+                    <div class="window-title-bar">
+                        <span class="mdi"></span>
+                        <span class="window-title"></span>
+                    </div>
+                    <div class="window-content"></div>
+                    <div class="window-footer"></div>
+                </div>
+            </td>
+            <!-- Bottom center panel -->
+            <td class="workspace-panel workspace-center-panel">
+                <div id="bottom-center-window" class="window">
+                    <div class="window-title-bar">
+                        <span class="mdi"></span>
+                        <span class="window-title"></span>
+                    </div>
+                    <div class="window-content"></div>
+                    <div class="window-footer"></div>
+                </div>
+            </td>
+            <!-- Bottom right panel -->
+            <td class="workspace-panel workspace-right-panel">
+                <div id="bottom-right-window" class="window">
+                    <div class="window-title-bar">
+                        <span class="mdi"></span>
+                        <span class="window-title"></span>
+                    </div>
+                    <div class="window-content"></div>
+                    <div class="window-footer"></div>
+                </div>
+            </td>
+        </tr>
+        <!-- Bottom application bar -->
+        <tr>
             <td colspan="3" class="bar bottom">
                 <div class="footer-bar">
-                    Developed with <span class="mdi mdi-heart"></span> by 
-                    <a href="https://github.com/FernandoAiresCastello" target="_blank">
-                        Fernando Aires Castello
-                    </a>
+                    <div class="version">v0.1-alpha</div>
+                    <div class="credits">
+                        Developed with <span class="mdi mdi-heart"></span> by 
+                        <a href="https://github.com/FernandoAiresCastello" target="_blank">
+                            Fernando Aires Castello
+                        </a>
+                    </div>
                 </div>
             </td>
         </tr>

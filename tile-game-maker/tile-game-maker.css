@@ -7,18 +7,26 @@ body {
     overflow: hidden;
     font-family: Teko, sans-serif;
     font-size: 21px;
+    display: none;
 }
 /*==============================================================================
     ROOT PANEL
 ==============================================================================*/
-table.root-panel {
+.root-panel, .floating-window-container {
     border: 0;
     padding: 0;
     margin: 0;
     width: 100%;
     height: 100%;
-    border-collapse: collapse;
     font-size: inherit;
+}
+.root-panel {
+    border-collapse: collapse;
+}
+.floating-window-container {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
 }
 /*==============================================================================
     TOP / BOTTOM BARS
@@ -53,11 +61,7 @@ td.bar.bottom {
 .title {
     align-self: flex-end;
     font-size: 36px;
-}
-.version {
-    font-size: 20px;
-    margin-left: 10px;
-    margin-top: 5px;
+    padding-top: 4px;
 }
 /*==============================================================================
     TITLE BAR BUTTONS
@@ -69,11 +73,11 @@ td.bar.bottom {
     border-radius: 6px;
     padding: 5px 10px;
     cursor: pointer;
-    margin: 5px 0;
     display: inline-block;
 }
 .button span.mdi {
     margin-right: 5px;
+    vertical-align: middle;
 }
 /*==============================================================================
     FOOTER BAR
@@ -82,6 +86,9 @@ td.bar.bottom {
     text-align: center;
     user-select: none;
     border-top: 1px solid #000;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
 }
 .footer-bar a {
     text-decoration: none;
@@ -100,7 +107,7 @@ td.left-panel, td.right-panel {
 ==============================================================================*/
 .workspace-panel {
     vertical-align: top;
-    padding: 10px 0;
+    padding: 0;
 }
 .workspace-left-panel {
     width: 20%;
@@ -115,27 +122,19 @@ td.left-panel, td.right-panel {
     WINDOWS
 ==============================================================================*/
 .window {
-    border: 1px solid #000;
-    border-radius: 0px;
+    border: 1px solid #000000;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
 }
-.window-margin-right {
-    margin-right: 10px;
-}
-.window-margin-left {
-    margin-left: 10px;
-}
-.window-margin-right-left {
-    margin-right: 10px;
-    margin-left: 10px;
-}
 .window span.mdi {
     margin-right: 5px;
 }
-.window-title {
+.window span.mdi::before {
+    vertical-align: middle;
+}
+.window-title-bar {
     padding: 0 10px;
     user-select: none;
     border-bottom: 1px solid #000;
@@ -144,8 +143,28 @@ td.left-panel, td.right-panel {
     padding: 0 10px;
     user-select: none;
     border-top: 1px solid #000;
+    height: 28px;
 }
 .window-content {
     padding: 0;
     height: 100%;
+}
+/*==============================================================================
+    FLOATING WINDOWS
+==============================================================================*/
+.floating-window {
+    position: absolute;
+    height: auto;
+    width: auto;
+}
+.floating-window .window-content {
+    padding: 5px 10px;
+}
+.floating-window .window-title-bar {
+    display: flex;
+    justify-content: space-between;
+}
+.floating-window span.mdi {
+    align-self: center;
+    margin: 0;
 }

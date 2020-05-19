@@ -1,5 +1,5 @@
 $(document).ready(main);
 
 function main() {
-    const ui = new Ui();
+    const ui = new TGM_Ui();
 }
