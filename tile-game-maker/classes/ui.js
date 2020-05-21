@@ -4,51 +4,20 @@
 =============================================================================*/
 class TGM_Ui {
     constructor() {
-        this.defineButtons();
-        this.defineWindows();
+        this.initButtonHandlers();
         this.initStyles();
         this.fadeIn();
     }
 
-    defineButtons() {
-       this.defineButton('file-outline', 'New', () => this.btnNewClick());
-       this.defineButton('content-save', 'Save', () => this.btnSaveClick());
-       this.defineButton('folder-open', 'Load', () => this.btnLoadClick());
-       this.defineButton('tools', 'Settings', () => this.btnSettingsClick());
-       this.defineButton('help-circle', 'Help', () => this.btnHelpClick());
-    }
-
-    defineButton(icon, title, onclick) {
-        const buttons = $('.button-container');
-        const id = 'button-' + TGL_Util.generateId();
-        const buttonHtml = `<div class="button" id="${id}"><span class="mdi mdi-${icon}"></span>${title}</div>`;
-        buttons.append(buttonHtml);
-        const button = buttons.find('#' + id);
-        button.click(onclick);
-    }
-
-    defineWindows() {
-        $('.floating-window .mdi-close').click(this.hideFloatingWindow);
-        // Map
-        this.defineWindow('#top-center-window', 'grid', 'Map');
-        this.addToolButton('#top-center-window', 'file-outline', 'New map');
-        this.addToolButton('#top-center-window', 'broom', 'Clear map');
-        // Object
-        this.defineWindow('#top-left-window', 'cube-outline', 'Object');
-        // Object library
-        this.defineWindow('#bottom-left-window', 'bookshelf', 'Object library');
-        // Map properties
-        this.defineWindow('#top-right-window', 'format-list-bulleted-type', 'Map properties');
-        // Map library
-        this.defineWindow('#bottom-right-window', 'map-outline', 'Map library');
-    }
-
-    defineWindow(windowSelector, icon, title, footer, content) {
-        const window = $(windowSelector);
-        window.find('span.mdi').first().replaceWith(`<span class="mdi mdi-${icon ? icon : ''}">`);
-        window.find('.window-title').html(title ? title : '');
-        window.find('.window-footer').html(footer ? footer : '');
-        window.find('.window-content').html(content ? content : '');
+    initButtonHandlers() {
+        // Main application buttons
+        $('#btn-new').click(() => this.btnNewClick());
+        $('#btn-save').click(() => this.btnSaveClick());
+        $('#btn-load').click(() => this.btnLoadClick());
+        $('#btn-settings').click(() => this.btnSettingsClick());
+        $('#btn-help').click(() => this.btnHelpClick());
+        // Floating window buttons
+        $('.floating-window .mdi-close').click(() => this.hideFloatingWindow());
     }
 
     initStyles() {
@@ -105,13 +74,6 @@ class TGM_Ui {
 
     hideFloatingWindow() {
         $('.floating-window-container').fadeOut();
-    }
-
-    addToolButton(windowSelector, icon, title, onclick) {
-        const window = $(windowSelector);
-        const button = `<span class="mdi mdi-${icon}"></span>`;
-        const toolbar = window.find('.window-toolbar');
-        toolbar.append(button);
     }
 
     setWorkspaceBackColor(color) {

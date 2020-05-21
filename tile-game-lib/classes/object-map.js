@@ -23,4 +23,8 @@ class TGL_ObjectMap {
             this.layers.push(new TGL_ObjectLayer(width, height));
         }
     }
+
+    getSize() {
+        return this.width * this.height;
+    }
 }
