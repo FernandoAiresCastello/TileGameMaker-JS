@@ -1,5 +1,8 @@
+/*=============================================================================
+    Ui
+    Represents the user interface
+=============================================================================*/
 class TGM_Ui {
-
     constructor() {
         this.defineButtons();
         this.defineWindows();
@@ -17,8 +20,11 @@ class TGM_Ui {
 
     defineButton(icon, title, onclick) {
         const buttons = $('.button-container');
-        const button = `<div class="button"><span class="mdi mdi-${icon}"></span>${title}</div>`;
-        buttons.append(button).click(onclick);
+        const id = 'button-' + TGL_Util.generateId();
+        const buttonHtml = `<div class="button" id="${id}"><span class="mdi mdi-${icon}"></span>${title}</div>`;
+        buttons.append(buttonHtml);
+        const button = buttons.find('#' + id);
+        button.click(onclick);
     }
 
     defineWindows() {
