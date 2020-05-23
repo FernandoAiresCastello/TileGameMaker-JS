@@ -3,8 +3,11 @@
     Represents the user interface
 =============================================================================*/
 class TGM_Ui {
+    display = null;
+
     constructor() {
         this.initButtonHandlers();
+        this.initMainDisplay();
         this.initStyles();
         this.fadeIn();
     }
@@ -18,6 +21,14 @@ class TGM_Ui {
         $('#btn-help').click(() => this.btnHelpClick());
         // Floating window buttons
         $('.floating-window .mdi-close').click(() => this.hideFloatingWindow());
+    }
+
+    initMainDisplay() {
+        const canvas = $('canvas#main-display');
+        canvas.width(256 * 2);
+        canvas.height(192 * 2);
+
+        this.display = new TGL_PixelDisplay(canvas, '#0000ff');
     }
 
     initStyles() {

@@ -12,8 +12,37 @@ class TGL_Test {
         this.testObjectLibrary();
         this.testObjectLayer();
         this.testObjectMap();
+        this.testPixelDisplay();
 
         console.log('--- TileGameLib tests finished ---');
+    }
+
+    static testPixelDisplay() {
+        const initialColor = '#0000ff';
+        const mockCanvas = { width: () => 256, height: () => 192 };
+        const display = new TGL_PixelDisplay(mockCanvas, initialColor);
+        console.assert(display.pixels);
+        console.assert(display.width === 256);
+        console.assert(display.height === 192);
+        console.assert(display.getSize() === 256 * 192);
+        console.assert(display.pixels.length === 256 * 192);
+        
+        const randomX = 123;
+        const randomY = 66;
+        const randomColor = '#f5ec46'
+        display.setPixel(randomX, randomY, randomColor);
+        console.assert(display.getPixel(randomX, randomY) === randomColor);
+
+        for (let y = 0; y < display.height; y++) {
+            for (let x = 0; x < display.width; x++) {
+                if (y === randomY && x === randomX) {
+                    console.assert(display.getPixel(x, y) === randomColor);
+                }
+                else {
+                    console.assert(display.getPixel(x, y) === initialColor);
+                }
+            }
+        }
     }
 
     static testObjectMap() {

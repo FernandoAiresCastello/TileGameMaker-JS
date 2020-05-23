@@ -131,6 +131,12 @@ td.left-panel, td.right-panel {
     padding: 0 10px;
     user-select: none;
     border-bottom: 1px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.window-status {
+    color: #e0e0e0;
 }
 .window-toolbar {
     padding: 0 10px;
@@ -185,4 +191,10 @@ td.left-panel, td.right-panel {
 .floating-window span.mdi {
     align-self: center;
     margin: 0;
+}
+/*==============================================================================
+    MAIN DISPLAY CANVAS
+==============================================================================*/
+canvas#main-display {
+    border: 1px solid #000000;
 }

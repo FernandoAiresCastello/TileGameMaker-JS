@@ -21,6 +21,8 @@
     <script src="../tile-game-lib/classes/object-cell.js"></script>
     <script src="../tile-game-lib/classes/object-layer.js"></script>
     <script src="../tile-game-lib/classes/object-map.js"></script>
+    <script src="../tile-game-lib/classes/pixel-display.js"></script>
+    <script src="../tile-game-lib/classes/pixel-renderer.js"></script>
     <script src="../tile-game-lib/classes/test.js"></script>
     <!-- Tile Game Maker scripts -->
     <script src="classes/ui.js"></script>
@@ -66,8 +68,10 @@
             <td class="workspace-panel workspace-top-panel workspace-side-panel">
                 <div id="top-left-window" class="window">
                     <div class="window-title-bar">
-                        <span class="mdi mdi-cube-outline"></span>
-                        <span class="window-title">Object</span>
+                        <div>
+                            <span class="mdi mdi-cube-outline"></span>
+                            <span class="window-title">Object</span>
+                        </div>
                     </div>
                     <div class="window-content"></div>
                 </div>
@@ -76,21 +80,29 @@
             <td class="workspace-panel workspace-top-panel workspace-center-panel" rowspan="2">
                 <div id="top-center-window" class="window">
                     <div class="window-title-bar">
-                        <span class="mdi mdi-grid"></span>
-                        <span class="window-title">Map</span>
+                        <div>
+                            <span class="mdi mdi-grid"></span>
+                            <span class="window-title">Map</span>
+                        </div>
+                        <span class="window-status">(map name)</span>
+                        <span class="window-status">(object at cursor position)</span>
                     </div>
                     <div class="window-toolbar">
                         <span class="mdi mdi-broom"></span>
                     </div>
-                    <div class="window-content"></div>
+                    <div class="window-content">
+                        <canvas id="main-display"></canvas>
+                    </div>
                 </div>
             </td>
             <!-- Top right panel -->
             <td class="workspace-panel workspace-top-panel workspace-side-panel">
                 <div id="top-right-window" class="window">
                     <div class="window-title-bar">
-                        <span class="mdi mdi-format-list-bulleted-type"></span>
-                        <span class="window-title">Map properties</span>
+                        <div>
+                            <span class="mdi mdi-format-list-bulleted-type"></span>
+                            <span class="window-title">Map properties</span>
+                        </div>
                     </div>
                     <div class="window-content"></div>
                 </div>
@@ -101,8 +113,11 @@
             <td class="workspace-panel workspace-bottom-panel workspace-side-panel">
                 <div id="bottom-left-window" class="window">
                     <div class="window-title-bar">
-                        <span class="mdi mdi-bookshelf"></span>
-                        <span class="window-title">Object library</span>
+                        <div>
+                            <span class="mdi mdi-bookshelf"></span>
+                            <span class="window-title">Object library</span>
+                        </div>
+                        <span class="window-status">0 objects</span>
                     </div>
                     <div class="window-content"></div>
                 </div>
@@ -111,8 +126,11 @@
             <td class="workspace-panel workspace-bottom-panel workspace-side-panel">
                 <div id="bottom-right-window" class="window">
                     <div class="window-title-bar">
-                        <span class="mdi mdi-map-outline"></span>
-                        <span class="window-title">Map library</span>
+                        <div>
+                            <span class="mdi mdi-map-outline"></span>
+                            <span class="window-title">Map library</span>
+                        </div>
+                        <span class="window-status">0 maps</span>
                     </div>
                     <div class="window-content"></div>
                 </div>
